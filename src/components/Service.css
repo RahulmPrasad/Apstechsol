@@ -1,0 +1,198 @@
+.service-section {
+  padding: 1.5rem 4.6% 5rem;
+  background: #fff;
+}
+
+.service-panel {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 5rem 5.5%;
+  background: var(--panel);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Decorative burst, partly cropped by the panel's top-right corner */
+.service-burst {
+  position: absolute;
+  top: -58px;
+  right: -36px;
+  width: 170px;
+  height: 170px;
+  color: #ebede9;
+  pointer-events: none;
+}
+
+@media (max-width: 680px) {
+  .service-burst {
+    width: 110px;
+    height: 110px;
+    top: -36px;
+    right: -24px;
+  }
+}
+
+.service-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 3.2rem;
+}
+
+.service-title {
+  margin: 1.6rem 0 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.service-subtitle {
+  max-width: 340px;
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* Cards */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.service-card {
+  --notch: 68px;
+  --curve: 18px;
+  position: relative;
+  display: block;
+  aspect-ratio: 1.22 / 1;
+  /* bottom-right is square: the notch covers it, and rounding it leaves a seam */
+  border-radius: 18px 18px 0 18px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.06);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 45%);
+  pointer-events: none;
+}
+
+.service-card-title {
+  position: absolute;
+  left: 1.4rem;
+  bottom: 1.3rem;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Bottom-right cut-out holding the arrow button */
+.service-notch {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: var(--notch);
+  height: var(--notch);
+  background: var(--panel);
+  border-top-left-radius: var(--curve);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* Inverted corners that blend the notch into the image edge */
+.service-notch::before,
+.service-notch::after {
+  content: '';
+  position: absolute;
+  width: var(--curve);
+  height: var(--curve);
+  background: radial-gradient(circle at 0 0, transparent calc(var(--curve) - 0.5px), var(--panel) var(--curve));
+}
+
+.service-notch::before {
+  right: 0;
+  bottom: 100%;
+}
+
+.service-notch::after {
+  right: 100%;
+  bottom: 0;
+}
+
+.service-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.service-card:hover .service-arrow {
+  transform: rotate(45deg);
+  background: var(--lime-hover);
+}
+
+.service-footer {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .service-section {
+    padding: 0 16px 4rem;
+  }
+
+  .service-panel {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}

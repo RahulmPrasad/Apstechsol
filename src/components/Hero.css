@@ -1,0 +1,166 @@
+.hero-container {
+  position: relative;
+  /* Mockup proportions: roughly 1440 x 775 on desktop */
+  min-height: clamp(640px, 54vw, 100svh);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4.2rem;
+  padding: 7rem 5% 2.6rem;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(0, 60, 190, 0.38) 0%, rgba(0, 70, 200, 0.18) 55%, rgba(0, 20, 60, 0.2) 100%),
+    url('/images/hero-wind.jpg') center 60% / cover no-repeat,
+    #1f5fae;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+.hero-subtitle {
+  max-width: 400px;
+  margin: 0 auto 1.6rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Glass cards */
+.hero-cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.9rem;
+}
+
+.hero-card {
+  position: relative;
+  background: rgba(150, 190, 235, 0.32);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  text-align: left;
+}
+
+.energy-card {
+  display: flex;
+  gap: 0.9rem;
+  width: 320px;
+  padding: 0.7rem;
+}
+
+.energy-card-image {
+  width: 132px;
+  height: 112px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.energy-card-text h4 {
+  margin: 0.2rem 0 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.energy-card-text p,
+.clients-card p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.clients-card {
+  width: 162px;
+  padding: 0.9rem 0.9rem 1.4rem;
+}
+
+.clients-card p {
+  max-width: 110px;
+}
+
+.avatar-group {
+  display: flex;
+  margin-bottom: 0.7rem;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-left: -10px;
+  object-fit: cover;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.clients-burst {
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  width: 30px;
+  height: 30px;
+  color: var(--lime);
+}
+
+@media (max-width: 700px) {
+  .hero-container {
+    gap: 3rem;
+  }
+
+  .hero-cards {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .energy-card,
+  .clients-card {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 576px) {
+   .hero-container {
+      height: 100vh;
+    }
+
+   .logo-image {
+    width: 120px;
+    }
+   
+   .navbar-container.scrolled {
+    background: #fff;
+   }
+}

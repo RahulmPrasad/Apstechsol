@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f2418;
+
+  /* Design tokens */
+  --lime: #c6f24e;
+  --lime-hover: #d6ff6b;
+  --ink: #0f2418;
+  --text: #4b5a52;
+  --muted: #6b7770;
+  --panel: #f6f7f4;
+  --tag-bg: #f1fadc;
+  --tag-border: #d8efa0;
+  --tag-text: #3a5a12;
+
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-heading: var(--font-outfit), var(--font-dm-sans), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* Shared pieces */
+@layer components {
+  .section-tag {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    color: var(--tag-text);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .btn-lime {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .btn-lime:hover {
+    background: var(--lime-hover);
+    box-shadow: 0 10px 28px rgba(198, 242, 78, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .btn-lime svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn-lime.white-btn {
+    background: #1570f8;
+    color: #fff;
+  }
+
+  .btn-lime.white-btn:hover {
+    background: #0f5fd6;
+    box-shadow: 0 10px 28px rgba(21, 112, 248, 0.35);
+  }
+}

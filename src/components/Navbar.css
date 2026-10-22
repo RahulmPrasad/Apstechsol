@@ -1,0 +1,242 @@
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 5%;
+  transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  z-index: 1000;
+}
+
+.navbar-container.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 5%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo-image{
+  width: 150px
+}
+
+.logo-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.navbar-container.scrolled .navbar-logo {
+  color: var(--ink);
+}
+
+/* Links */
+.navbar-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: var(--lime);
+}
+
+.navbar-container.scrolled .navbar-link {
+  color: var(--text);
+}
+
+.navbar-container.scrolled .navbar-link:hover {
+  color: var(--ink);
+}
+
+/* Buttons */
+.navbar-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn-contact,
+.btn-register {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-contact {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid #fff;
+}
+
+.btn-contact:hover {
+  background: var(--lime);
+  border-color: var(--lime);
+}
+
+.btn-register {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.btn-register:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+.navbar-container.scrolled .btn-contact {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.navbar-container.scrolled .btn-register {
+  color: var(--ink);
+  border-color: rgba(15, 36, 24, 0.3);
+}
+
+/* Hamburger */
+.navbar-toggle {
+  display: none;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  position: absolute;
+  left: 50%;
+  width: 26px;
+  height: 2px;
+  margin-left: -13px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform 0.3s ease, opacity 0.2s ease, background-color 0.3s ease;
+}
+
+.navbar-toggle span:nth-child(1) { top: 7px; }
+.navbar-toggle span:nth-child(2) { top: 15px; }
+.navbar-toggle span:nth-child(3) { top: 23px; }
+
+.navbar-toggle.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.navbar-toggle.is-open span:nth-child(2) { opacity: 0; }
+.navbar-toggle.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.navbar-container.scrolled .navbar-toggle span {
+  background: var(--ink);
+}
+
+/* Mobile dropdown */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 5% 1.5rem;
+  background: #fff;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-menu-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-menu-link {
+  display: block;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid #eef0ec;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mobile-menu-link:hover {
+  color: #1570f8;
+}
+
+.mobile-menu-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.mobile-btn {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(15, 36, 24, 0.3);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+.mobile-btn.is-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .navbar-links,
+  .navbar-actions {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .logo-image {
+    width: 120px;
+  }
+}
